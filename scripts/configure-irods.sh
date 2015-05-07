@@ -5,7 +5,7 @@
 
 RESPFILE=$1
 
-# Install iRODS
+# Install iRODS RPMs - uncomment packages as required
 cd /RPMs/
 # Install irods-icat
 rpm -i $(ls -l | tr -s ' ' | grep irods-icat | cut -d ' ' -f 9)
@@ -20,3 +20,6 @@ rpm -i $(ls -l | tr -s ' ' | grep irods-database-plugin | cut -d ' ' -f 9)
 
 # Run the iRODS setup script
 /var/lib/irods/packaging/setup_irods.sh < $1
+
+# Save copy of /usr/bin/genOSAuth
+cp /usr/bin/genOSAuth /root/.secret/genOSAuth

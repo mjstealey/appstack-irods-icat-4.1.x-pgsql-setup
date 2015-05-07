@@ -25,6 +25,7 @@ NEGOTIATION_KEY='TEMPORARY_32byte_negotiation_key'
 # openssl rand -base64 32 | sed 's,/,S,g' | cut -c 1-32
 CONTROL_PLANE_PORT='1248'
 CONTROL_PLANE_KEY='TEMPORARY__32byte_ctrl_plane_key'
+SCHEMA_VALIDATION_BASE_URI='https://schemas.irods.org/configuration'
 ###
 ADMINISTRATOR_USERNAME='rods'
 ADMINISTRATOR_PASSWORD='rods'
@@ -55,6 +56,7 @@ echo ${ZONE_KEY} >> $RESPFILE                   # zone key
 echo ${NEGOTIATION_KEY} >> $RESPFILE            # negotiation key
 echo ${CONTROL_PLANE_PORT} >> $RESPFILE         # control plane port
 echo ${CONTROL_PLANE_KEY} >> $RESPFILE          # control plane key
+echo ${SCHEMA_VALIDATION_BASE_URI} >> $RESPFILE # schema validation base URI
 echo ${ADMINISTRATOR_USERNAME} >> $RESPFILE     # iRODS admin account
 echo ${ADMINISTRATOR_PASSWORD} >> $RESPFILE     # iRODS admin password
 echo "yes" >> $RESPFILE                         # confirm iRODS settings

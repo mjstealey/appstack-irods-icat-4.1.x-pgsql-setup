@@ -35,9 +35,5 @@ WORKDIR /scripts
 RUN chmod a+x *.sh
 
 # Open firewall for iRODS
-#EXPOSE 1247 1248 20000-20199
-#ENTRYPOINT [ "/scripts/bootstrap.sh" ]
-
-# Keep container from shutting down until explicitly stopped
-ENTRYPOINT ["/usr/bin/tail"]
-CMD ["-f", "/dev/null"]
+EXPOSE 1247 1248 20000-20199
+ENTRYPOINT [ "/scripts/bootstrap.sh" ]
