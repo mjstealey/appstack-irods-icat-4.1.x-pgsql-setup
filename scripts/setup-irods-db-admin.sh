@@ -35,6 +35,3 @@ EOF
 # Refresh environment variables derived from updated secrets
 sed -e "s/:[^:\/\/]/=/g;s/$//g;s/ *=/=/g" $SECRETS_FILE > /root/.secret/secrets.sh
 while read line; do export $line; done < <(cat /root/.secret/secrets.sh)
-
-# Save copy of /usr/bin/genOSAuth
-cp /usr/bin/genOSAuth /root/.secret/genOSAuth
