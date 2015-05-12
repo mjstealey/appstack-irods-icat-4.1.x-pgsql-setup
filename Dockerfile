@@ -1,6 +1,8 @@
 FROM centos:centos6.6
 MAINTAINER Michael Stealey <michael.j.stealey@gmail.com>
 
+ENV TERM xterm
+
 RUN yum install -y wget
 RUN wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 RUN rpm -Uvh epel-release-6*.rpm
@@ -25,8 +27,9 @@ RUN /sbin/chkconfig --level=3 auth on
 RUN /etc/init.d/xinetd restart
 
 # Install iRODS RPMs
-ADD irodsrpms /RPMs
-WORKDIR /RPMs
+ADD files /files
+ADD irods-config.yaml /files/irods-config.yaml
+WORKDIR /files
 # get iRODS rpm files
 RUN sh get-irods-rpms.sh
 
