@@ -13,36 +13,6 @@ IRODS_CONFIG_FILE=/files/irods-config.yaml
 sed -e "s/:[^:\/\/]/=/g;s/$//g;s/ *=/=/g" ${IRODS_CONFIG_FILE} > /root/.secret/irods-config.sh
 while read line; do export $line; done < <(cat /root/.secret/irods-config.sh)
 
-#SERVICE_ACCT_USERNAME='irods'
-#SERVICE_ACCT_GROUP='irods'
-#IRODS_ZONE='tempZone'
-#IRODS_PORT='1247'
-#RANGE_BEGIN='20000'
-#RANGE_END='20199'
-#VAULT_DIRECTORY='/var/lib/irods/iRODS/Vault'
-## LOCAL_ZONE_SID='TEMP_LOCAL_ZONE_SID'
-## (openssl rand -base64 16 | sed 's,/,S,g' | cut -c 1-16 | tr -d '\n' ; echo "-SID")
-## AGENT_KEY='temp_32_byte_key_for_agent__conn'
-## openssl rand -base64 32 | sed 's,/,S,g' | cut -c 1-32
-####
-#ZONE_KEY='TEMPORARY_zone_key'
-## (openssl rand -base64 16 | sed 's,/,S,g' | cut -c 1-16 | tr -d '\n' ; echo "-SID")
-#NEGOTIATION_KEY='TEMPORARY_32byte_negotiation_key'
-## openssl rand -base64 32 | sed 's,/,S,g' | cut -c 1-32
-#CONTROL_PLANE_PORT='1248'
-#CONTROL_PLANE_KEY='TEMPORARY__32byte_ctrl_plane_key'
-#SCHEMA_VALIDATION_BASE_URI='https://schemas.irods.org/configuration'
-####
-#ADMINISTRATOR_USERNAME='rods'
-#ADMINISTRATOR_PASSWORD='rods'
-## openssl rand -base64 16 | sed 's,/,S,g' | cut -c 1-16
-#HOSTNAME_OR_IP='db'
-#DATABASE_PORT='5432'
-#DATABASE_NAME='ICAT'
-#DATABASE_USER='irods'
-#DATABASE_PASSWORD='irods'
-## openssl rand -base64 16 | sed 's,/,S,g' | cut -c 1-16
-
 #######################
 ### iRODS RPM FILES ###
 #######################
