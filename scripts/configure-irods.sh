@@ -6,7 +6,7 @@
 RESPFILE=$1
 
 # Install iRODS RPMs - uncomment packages as required
-cd /RPMs/
+cd /files/
 # Install irods-icat
 rpm -i $(ls -l | tr -s ' ' | grep irods-icat | cut -d ' ' -f 9)
 # Install irods-database-plugin
