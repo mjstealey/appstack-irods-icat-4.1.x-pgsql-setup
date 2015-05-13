@@ -9,6 +9,10 @@ IRODS_DB_ADMIN_USER=`tail -n 3 $RESPFILE | head -n 1`
 IRODS_DB_ADMIN_PASS=`tail -n 2 $RESPFILE | head -n 1`
 SECRETS_FILE='/root/.secret/secrets.yaml'
 
+# read irods-config.yaml into environment
+sed -e "s/:[^:\/\/]/=/g;s/$//g;s/ *=/=/g" /files/irods-config.yaml > /files/irods-config.sh
+while read line; do export $line; done < <(cat /files/irods-config.sh)
+
 # Get secrets from postgresql install
 sed -e "s/:[^:\/\/]/=/g;s/$//g;s/ *=/=/g" $SECRETS_FILE > /root/.secret/secrets.sh
 while read line; do export $line; done < <(cat /root/.secret/secrets.sh)
@@ -19,10 +23,10 @@ chmod 0600 /var/lib/pgsql/.pgpass
 chown postgres:postgres /var/lib/pgsql/.pgpass
 
 # Rename existing database to ICAT
-sudo -u postgres psql -h db -c "ALTER DATABASE \"${PGSETUP_DATABASE_NAME}\" RENAME TO \"ICAT\""
+sudo -u postgres psql -h ${HOSTNAME_OR_IP} -c "ALTER DATABASE \"${PGSETUP_DATABASE_NAME}\" RENAME TO \"ICAT\""
 # Create irods database user and grant all privileges to that user
-sudo -u postgres psql -h db -c "CREATE USER ${IRODS_DB_ADMIN_USER} WITH PASSWORD '${IRODS_DB_ADMIN_PASS}'"
-sudo -u postgres psql -h db -c "GRANT ALL PRIVILEGES ON DATABASE \"ICAT\" TO ${IRODS_DB_ADMIN_USER}"
+sudo -u postgres psql -h ${HOSTNAME_OR_IP} -c "CREATE USER ${IRODS_DB_ADMIN_USER} WITH PASSWORD '${IRODS_DB_ADMIN_PASS}'"
+sudo -u postgres psql -h ${HOSTNAME_OR_IP} -c "GRANT ALL PRIVILEGES ON DATABASE \"ICAT\" TO ${IRODS_DB_ADMIN_USER}"
 
 # Update secrets file with new information
 sed -i "s/${PGSETUP_DATABASE_NAME}/ICAT/g" $SECRETS_FILE
