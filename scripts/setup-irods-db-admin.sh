@@ -10,8 +10,7 @@ IRODS_DB_ADMIN_PASS=`tail -n 2 $RESPFILE | head -n 1`
 SECRETS_FILE='/root/.secret/secrets.yaml'
 
 # read irods-config.yaml into environment
-sed -e "s/:[^:\/\/]/=/g;s/$//g;s/ *=/=/g" /files/irods-config.yaml > /files/irods-config.sh
-while read line; do export $line; done < <(cat /files/irods-config.sh)
+while read line; do export $line; done < <(cat /root/.secret/irods-config.sh)
 
 # Get secrets from postgresql install
 sed -e "s/:[^:\/\/]/=/g;s/$//g;s/ *=/=/g" $SECRETS_FILE > /root/.secret/secrets.sh
