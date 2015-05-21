@@ -23,3 +23,5 @@ rpm -i $(ls -l | tr -s ' ' | grep irods-database-plugin | cut -d ' ' -f 9)
 
 # Save copy of /usr/bin/genOSAuth
 cp /usr/bin/genOSAuth /root/.secret/genOSAuth
+
+exit;

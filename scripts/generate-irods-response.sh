@@ -9,9 +9,9 @@
 
 IRODS_CONFIG_FILE=/files/irods-config.yaml
 
-# Refresh environment variables derived from updated secrets
-sed -e "s/:[^:\/\/]/=/g;s/$//g;s/ *=/=/g" ${IRODS_CONFIG_FILE} > /root/.secret/irods-config.sh
-while read line; do export $line; done < <(cat /root/.secret/irods-config.sh)
+# Refresh environment variables derived from updated config file
+sed -e "s/:[^:\/\/]/=/g;s/$//g;s/ *=/=/g" ${IRODS_CONFIG_FILE} > /files/irods-config.sh
+while read line; do export $line; done < <(cat /files/irods-config.sh)
 
 #######################
 ### iRODS RPM FILES ###
@@ -40,3 +40,5 @@ echo ${DATABASE_NAME} >> $RESPFILE              # database DB name
 echo ${DATABASE_USER} >> $RESPFILE              # database admin username
 echo ${DATABASE_PASSWORD} >> $RESPFILE          # database admin password
 echo "yes" >> $RESPFILE                         # confirm database settings
+
+exit;

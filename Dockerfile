@@ -10,7 +10,7 @@ RUN rpm -Uvh epel-release-6*.rpm
 # Install PostgreSQL 9.3.6 pre-requisites
 RUN rpm -ivh http://yum.postgresql.org/9.3/redhat/rhel-6-x86_64/pgdg-centos93-9.3-1.noarch.rpm
 RUN yum install -y postgresql93 postgresql93-server postgresql93-odbc unixODBC
-RUN yum install -y perl authd wget fuse-libs openssl098e curl-devel sudo which
+RUN yum install -y perl authd wget fuse-libs openssl098e curl-devel sudo which pwgen
 RUN yum install -y perl-JSON python-psutil python-requests python-jsonschema
 
 # Modify authd config file for xinetd.d
@@ -28,9 +28,8 @@ RUN /etc/init.d/xinetd restart
 
 # Install iRODS RPMs
 ADD files /files
-ADD irods-config.yaml /files/irods-config.yaml
 WORKDIR /files
-# get iRODS rpm files
+RUN chmod a+x *.sh
 RUN sh get-irods-rpms.sh
 
 ADD scripts /scripts
