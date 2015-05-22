@@ -13,12 +13,12 @@ IRODS_SETUP_FILE='setup_responses'
 ### CREATE CONFIG FILE ###
 
 if [[ -e /conf/$IRODS_CONFIG_FILE ]] ; then
-    echo "*** Importing existing configuration file: /conf/${$IRODS_CONFIG_FILE} ***"
-    cp /conf/$IRODS_CONFIG_FILE /files/$IRODS_CONFIG_FILE;
+    echo "*** Importing existing configuration file: /conf/${IRODS_CONFIG_FILE} ***"
+    cp /conf/${IRODS_CONFIG_FILE} /files;
 else
     echo "*** Generating configuration file: /files/${IRODS_CONFIG_FILE} ***"
-    /scripts/generate-config-file.sh /files/$IRODS_CONFIG_FILE
-    cp /files/$IRODS_CONFIG_FILE /conf/$IRODS_CONFIG_FILE;
+    /scripts/generate-config-file.sh /files/${IRODS_CONFIG_FILE}
+    cp /files/${IRODS_CONFIG_FILE} /conf;
 fi
 
 # generate configuration responses
