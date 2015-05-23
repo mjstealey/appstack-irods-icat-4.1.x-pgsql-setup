@@ -25,15 +25,15 @@ if [ ! -f $(echo "${DATABASE_PLUGIN##*/}") ]; then
     echo "*** Downloading $(echo "${DATABASE_PLUGIN##*/}") ***"
     wget $DATABASE_PLUGIN
 fi
-#if [ ! -f $(echo "${DEVELOPMENT_TOOLS##*/}") ]; then
-#    echo "*** Downloading $(echo "${DEVELOPMENT_TOOLS##*/}") ***"
-#    wget $DEVELOPMENT_TOOLS
-#fi
-#if [ ! -f $(echo "${RUNTIME_LIBRARIES##*/}") ]; then
-#    echo "*** Downloading $(echo "${RUNTIME_LIBRARIES##*/}") ***"
-#    wget $RUNTIME_LIBRARIES
-#fi
-#if [ ! -f $(echo "${MICROSERVICE_PLUGIN##*/}") ]; then
-#    echo "*** Downloading $(echo "${MICROSERVICE_PLUGIN##*/}") ***"
-#    wget $MICROSERVICE_PLUGIN
-#fi
+if [ ! -f $(echo "${DEVELOPMENT_TOOLS##*/}") ]; then
+    echo "*** Downloading $(echo "${DEVELOPMENT_TOOLS##*/}") ***"
+    wget $DEVELOPMENT_TOOLS
+fi
+if [ ! -f $(echo "${RUNTIME_LIBRARIES##*/}") ]; then
+    echo "*** Downloading $(echo "${RUNTIME_LIBRARIES##*/}") ***"
+    wget $RUNTIME_LIBRARIES
+fi
+if [ ! -f $(echo "${MICROSERVICE_PLUGIN##*/}") ]; then
+    echo "*** Downloading $(echo "${MICROSERVICE_PLUGIN##*/}") ***"
+    wget $MICROSERVICE_PLUGIN
+fi
