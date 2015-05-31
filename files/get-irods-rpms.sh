@@ -7,10 +7,10 @@
 ### iRODS RPM FILES ###
 #######################
 
-ICAT_SERVER='http://distribution.hydroshare.org/public_html/irods-eng-build/irods-icat-4.1.0-64bit-centos6.rpm'
-DATABASE_PLUGIN='http://distribution.hydroshare.org/public_html/irods-eng-build/irods-database-plugin-postgres93-1.5-centos6.rpm'
-DEVELOPMENT_TOOLS='http://distribution.hydroshare.org/public_html/irods-eng-build/irods-dev-4.1.0-64bit-centos6.rpm'
-RUNTIME_LIBRARIES='http://distribution.hydroshare.org/public_html/irods-eng-build/irods-runtime-4.1.0-64bit-centos6.rpm'
+ICAT_SERVER='ftp://ftp.renci.org/pub/irods/releases/4.1.0/centos6/irods-icat-4.1.0-centos6-x86_64.rpm'
+DATABASE_PLUGIN='ftp://ftp.renci.org/pub/irods/releases/4.1.0/centos6/irods-database-plugin-postgres93-1.5-centos6-x86_64.rpm'
+DEVELOPMENT_TOOLS='ftp://ftp.renci.org/pub/irods/releases/4.1.0/centos6/irods-dev-4.1.0-centos6-x86_64.rpm'
+RUNTIME_LIBRARIES='ftp://ftp.renci.org/pub/irods/releases/4.1.0/centos6/irods-runtime-4.1.0-centos6-x86_64.rpm'
 MICROSERVICE_PLUGIN='ftp://ftp.renci.org/pub/irods/plugins/irods_microservice_plugins_curl/1.1/irods-microservice-plugins-curl-1.1-centos6.rpm'
 
 ############################
